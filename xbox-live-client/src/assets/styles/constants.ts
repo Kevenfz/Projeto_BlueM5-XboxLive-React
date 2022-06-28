@@ -1,7 +1,13 @@
 export const constants = {
+  titleModalFontFamily: "Questrial",
+  titleModalFontSize: "48px",
+  
   modalFontFamily: "Questrial",
-  modalFontSize: "30px",
+  modalFontSize: "25px",
   modalLineHeight: "140%",
+
+  newUserFontFamily: "Questrial",
+  newUserFontSize: "15px",
 
   gameFontFamily: "Rajdhani",
   gameFontSize: "20px",
@@ -10,6 +16,6 @@ export const constants = {
   textColor: "#ffffff",
   textLighter: "#E0E6E9",
   textLight: "#ABBBC2",
+  textLink: "#10C800",
   textNeutral: "#889898",
-  textDark: "#3B5162",
 };

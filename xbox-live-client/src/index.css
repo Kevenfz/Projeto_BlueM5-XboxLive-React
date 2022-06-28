@@ -4,5 +4,21 @@
 body, html, #root {
   margin: 0;
   padding: 0;
+  outline: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+#root{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
