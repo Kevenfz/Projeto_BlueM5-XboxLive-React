@@ -1,49 +1,4 @@
-div .Modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-top: -20px;
-  }
-  
-  div .logo img {
-    width: 620px;
-    height: 310px;
-    margin-bottom: -120px;
-  }
 
-  div.modal {
-    background-color: rgba(0, 0, 0, 0.82);
-    width: 454px;
-    height: 425px;
-    margin-top: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    margin-top: 8%;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    color: aliceblue;
-    margin-top: 12px;
-    width: 70%;
-    height: 100%;
-  }
-  
-  img {
-    width: 118px;
-    height: 117px;
-    margin-top: -30px;
-  }
-  
   form label.Label {
     text-align: center;
     font-size: 25px;
@@ -61,15 +16,6 @@ div .Modal {
     transition: all 0.6s;
   }
   
-  form p {
-      margin-left: -25%;
-      margin-top: 5px;
-  }
-  form p #link {
-      color: #10C800;
-      text-decoration: none;
-  }
-  
   form input.Input:focus {
     border: 0.7px solid;
     border-color: #0176018d;
@@ -78,24 +24,6 @@ div .Modal {
   
   form input.Input::placeholder {
     color: rgb(128, 128, 128);
-  }
-  
-  button {
-    width: 200px;
-    padding: 15px;
-    border-radius: 5px;
-    color: rgb(0, 0, 0);
-    background-color: #007700;
-    border: none;
-    cursor: pointer;
-    transition: all 0.6s;
-    font-size: 20px;
-  }
-  
-  button:hover {
-      transform: scale(1.02);
-      background-color: #10C800;
-      color: aliceblue;
   }
   
   

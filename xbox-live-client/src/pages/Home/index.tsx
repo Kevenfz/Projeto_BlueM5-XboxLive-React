@@ -10,7 +10,6 @@ export const Home = () => {
   } 
 
   return (
-    <>
       <S.Home>
         <S.Logo
           src={require("../../assets/icons/LogoHome.png")}
@@ -36,8 +35,5 @@ export const Home = () => {
           Faça Login
         </S.ButtonLogin>
       </S.Home>
-    </>
   );
 };
-
-//TODO Mixins e componentes de home e Login

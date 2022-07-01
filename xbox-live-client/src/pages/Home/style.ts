@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { mixins } from "../../assets/styles/mixins";
 
 export const Home = styled.section`
   ${({ theme }) => css`
@@ -8,11 +7,10 @@ export const Home = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: 20px;
+    justify-content: center;
     color: ${theme.colors.secundaryColor};
     overflow-x: hidden;
-    /* background: ${mixins.gameAdminBackground}; */
+    /* background: ${theme.mixins.homeBackground}; */
   `}
 `;
 
@@ -21,21 +19,30 @@ export const div = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: -20px
-`
+  margin-top: -20px;
+`;
 
 export const Logo = styled.img`
   ${() => css`
     width: 620px;
     height: 310px;
     margin-top: -40px;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    transition-duration: 2s;
+    transition-delay: 1s;
   `}
 `;
+
 export const Joystick = styled.img`
   ${() => css`
     width: 300px;
     height: 200px;
     margin-top: 45px;
+    transition: all 0.6s;
+    :hover {
+      transform: scale(1.1);
+    }
   `}
 `;
 
@@ -68,4 +75,4 @@ export const ButtonLogin = styled.button`
     margin-top: 50px
     width: 100%
   `}
-`
+`;

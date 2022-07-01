@@ -11,7 +11,6 @@ const modalLogin = () => css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
   margin-top: 8%;
 `;
 
@@ -117,6 +116,13 @@ const inputStyle = () => css`
   transition: all 0.6s;
 `;
 
+const homeBackground = () => css`
+  background: url(/src/assets/images/backgroundHomePage.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+`
+
 const profilesBackground = () => css`
   background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
   background-size: 100% 100%;
@@ -149,8 +155,8 @@ const logoModal = () => css`
 `;
 
 const btnOnStyle = () => css`
-  width: 200px;
-  padding: 15px;
+  width: 180px;
+  padding: 13px;
   border-radius: 10px;
   color: rgb(0, 0, 0);
   background-color: ${colors.buttonColor};
@@ -160,6 +166,11 @@ const btnOnStyle = () => css`
   font-family: ${constants.gameFontFamily};
   font-weight: bold;
   font-size: 25px;
+  :hover {
+      transform: scale(1.02);
+      background-color: #10C800;
+      color: aliceblue;
+  }
 `;
 
 const btnOffStyle = () => css`
@@ -198,6 +209,7 @@ export const mixins = {
   modalFontStyle,
   gameFontStyle,
   inputStyle,
+  homeBackground,
   profilesBackground,
   gameAdminBackground,
   gameUserBackground,
