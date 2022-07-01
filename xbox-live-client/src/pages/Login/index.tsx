@@ -5,6 +5,9 @@ import "./style.css"
 export const Login = () => {
     return (
         <div className="Modal">
+          <div className="logo">
+          <img src={require("../../assets/icons/LogoHome.png")} alt="" />
+          </div>
           <div className="modal">
             <img src={require("../../assets/icons/xbox-logoFavoritoVerde.png")} alt="Logo Xbox" />
             
