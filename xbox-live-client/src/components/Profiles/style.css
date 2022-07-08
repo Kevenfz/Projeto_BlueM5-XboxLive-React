@@ -1,0 +1,27 @@
+.IconEdit {
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.IconEdit:hover {
+    color: #10c800;
+    transform: scale(1.2);
+}
+
+.IconNewProfile {
+    width: 100px;
+    height: 70px;
+    color: #fff;
+    transition: all .4s;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+.IconNewProfile:hover {
+    color: #10c800;
+    transform: scale(1.2);
+}

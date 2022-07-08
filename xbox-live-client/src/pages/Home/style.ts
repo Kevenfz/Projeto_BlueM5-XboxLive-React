@@ -19,7 +19,7 @@ export const div = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: -20px;
+
 `;
 
 export const Logo = styled.img`
@@ -59,7 +59,7 @@ export const Info = styled.p`
 
 export const h1 = styled.h1`
   ${({ theme }) => css`
-    margin-bottom: -20px;
+    margin-bottom: 20px;
     font-family: ${theme.constants.modalFontFamily};
     font-size: ${theme.constants.modalFontSize};
   `}
@@ -68,11 +68,9 @@ export const h1 = styled.h1`
 export const ButtonLogin = styled.button`
   ${({ theme }) => css`
     ${theme.mixins.btnOnStyle}
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
     padding: 25px;
     margin-top: 50px
     width: 100%
   `}
 `;
+

@@ -6,25 +6,22 @@ const modalLogin = () => css`
   background-color: ${colors.modalColor};
   width: 454px;
   height: 425px;
-  margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 8%;
+  margin-top: 10%;
 `;
 
 const modalCreateUser = () => css`
   background-color: ${colors.modalColor};
-  width: 525px;
-  height: 636px;
-  margin-top: 20px;
-  border-radius: 10px;
+  width: 450px;
+  height: 660px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
-  margin-top: 8%;
+  gap: 10px;
 `;
 
 const modalCreateProfile = () => css`
@@ -32,7 +29,7 @@ const modalCreateProfile = () => css`
   width: 508px;
   height: 473px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +42,7 @@ const modalCreateGame = () => css`
   width: 508px;
   height: 473px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +55,7 @@ const modalCreateGender = () => css`
   width: 508px;
   height: 206px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +68,7 @@ const modalUpdateGame = () => css`
   width: 508px;
   height: 473px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,18 +81,12 @@ const modalUpdateUsers = () => css`
   width: 508px;
   height: 496px;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 7px;
   margin-top: 8%;
-`;
-
-const modalFontStyle = () => css`
-  font-family: ${constants.modalFontFamily};
-  font-size: ${constants.modalFontSize};
-  line-height: ${constants.modalLineHeight};
 `;
 
 const gameFontStyle = () => css`
@@ -104,16 +95,25 @@ const gameFontStyle = () => css`
   line-height: ${constants.gameLineHeight};
 `;
 
+const modalFontStyle = () => css`
+  font-family: ${constants.modalFontFamily};
+  font-size: ${constants.modalFontSize};
+  line-height: ${constants.modalLineHeight};
+`;
+
 const inputStyle = () => css`
   padding: 15px;
   border-radius: 5px;
   border: none;
   outline: none;
-  width: 100%;
+  width: 362px;
   font-size: 14px;
-  background: ${colors.inputColor};
   color: aliceblue;
   transition: all 0.6s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
 `;
 
 const homeBackground = () => css`
@@ -121,9 +121,16 @@ const homeBackground = () => css`
   background-size: 100% 100%;
   background-attachment: fixed;
   background-position: bottom;
-`
+`;
 
 const profilesBackground = () => css`
+  background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+`;
+
+const appBackground = () => css`
   background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -138,7 +145,7 @@ const gameAdminBackground = () => css`
 `;
 
 const gameUserBackground = () => css`
-  background: url(/src/assets/images/xboxBackgroundUser.png) no-repeat;
+  background: url(/src/assets/images/xboxBackgroundUser.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
   background-position: bottom;
@@ -167,9 +174,9 @@ const btnOnStyle = () => css`
   font-weight: bold;
   font-size: 25px;
   :hover {
-      transform: scale(1.02);
-      background-color: #10C800;
-      color: aliceblue;
+    transform: scale(1.02);
+    background-color: #10c800;
+    color: aliceblue;
   }
 `;
 
@@ -198,6 +205,23 @@ const btnSearchImg = () => css`
   font-size: 20px;
 `;
 
+const iconBack = () => css`
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: #fff;
+  /* background-color: #009D00; */
+  padding: 0.3rem;
+  font-size: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s all;
+  :hover {
+    color: #009D00;
+  transform: scale(.9);
+}
+`;
+
 export const mixins = {
   modalLogin,
   modalCreateUser,
@@ -218,4 +242,6 @@ export const mixins = {
   btnOnStyle,
   btnOffStyle,
   btnSearchImg,
+  iconBack,
+  appBackground,
 };

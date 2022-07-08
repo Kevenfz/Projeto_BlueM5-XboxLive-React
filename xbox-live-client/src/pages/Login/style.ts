@@ -1,18 +1,14 @@
 import styled, { css } from "styled-components";
 
 export const Main = styled.section`
-  ${() => css`
+  ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    margin-top: -40px;
-    /* transition-timing-function: ease-in;
-    transition-duration: 2s;
-    transition-delay: 1s;
-    transition-property: all; */
+    height: 100vh;
+    background: url(/src/assets/images/MainBackground2.jpg);
   `}
 `;
 
@@ -20,7 +16,7 @@ export const XboxLogo = styled.img`
   ${() => css`
     width: 420px;
     height: 210px;
-    /* margin-top: -40px; */
+    margin-top: -40px;
     cursor: pointer;
   `}
 `;
@@ -28,15 +24,15 @@ export const XboxLogo = styled.img`
 export const Modal = styled.div`
   ${({ theme }) => css`
     ${theme.mixins.modalLogin};
-    font-family: ${theme.mixins.modalFontStyle};
+    font-family: ${theme.mixins.gameFontStyle};
     font-size: ${theme.mixins.modalFontStyle};
-    margin-top: 80px;
   `}
 `;
+
 export const Logo = styled.img`
   width: 118px;
   height: 117px;
-  margin-top: -30px;
+  margin-top: -40px;
 `;
 
 export const FormLogin = styled.form`
@@ -61,9 +57,9 @@ export const PLogin = styled.div`
   font-size: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 7px;
-  margin-top: -12px;
+  margin-left: 6px;
 `;
 
 export const LinkCad = styled.span`
@@ -76,6 +72,12 @@ export const LinkCad = styled.span`
 export const btnEnter = styled.button`
   ${({ theme }) => css`
     ${theme.mixins.btnOnStyle}
-    margin-top: -5px;
+    margin-top: 5px;
   `}
 `;
+
+export const Back = styled.aside`
+ ${({ theme }) => css`
+    ${theme.mixins.iconBack}
+  `}
+`
