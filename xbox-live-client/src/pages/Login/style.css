@@ -19,7 +19,7 @@
   form input.Input:focus {
     border: 0.7px solid;
     border-color: #0176018d;
-    background-color: #01350149;
+    background-color: #0135014f;
   }
   
   form input.Input::placeholder {

@@ -30,13 +30,9 @@ const modalCreateProfile = () => css`
   height: 473px;
   margin-top: 20px;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  margin-top: 8%;
 `;
 
+//TODO Colocar as configuarações que fizer lá no style e jogar tudo aqui, e passar apenas esse thema já do jeito certo sem bugar
 const modalCreateGame = () => css`
   background-color: ${colors.modalColor};
   width: 508px;
@@ -46,8 +42,6 @@ const modalCreateGame = () => css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
-  margin-top: 8%;
 `;
 
 const modalCreateGender = () => css`
@@ -108,13 +102,22 @@ const inputStyle = () => css`
   outline: none;
   width: 362px;
   font-size: 14px;
-  color: aliceblue;
+  color: ${colors.secundaryColor};
   transition: all 0.6s;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
 `;
+
+const InputCreateGameStyle = () => css`
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+`
 
 const homeBackground = () => css`
   background: url(/src/assets/images/backgroundHomePage.jpg) no-repeat;
@@ -215,11 +218,11 @@ const iconBack = () => css`
   font-size: 3rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: .3s all;
+  transition: 0.3s all;
   :hover {
-    color: #009D00;
-  transform: scale(.9);
-}
+    color: #009d00;
+    transform: scale(0.9);
+  }
 `;
 
 export const mixins = {
@@ -244,4 +247,5 @@ export const mixins = {
   btnSearchImg,
   iconBack,
   appBackground,
+  InputCreateGameStyle,
 };

@@ -7,7 +7,7 @@ export const constants = {
   modalLineHeight: "140%",
 
   newUserFontFamily: "Questrial",
-  newUserFontSize: "15px",
+  newUserFontSize: "30px",
 
   gameFontFamily: "Rajdhani",
   gameFontSize: "20px",

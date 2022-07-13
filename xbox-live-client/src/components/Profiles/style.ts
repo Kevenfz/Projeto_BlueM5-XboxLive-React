@@ -9,6 +9,7 @@ export const MainSection = styled.section`
 
 export const Profiles = styled.div`
   width: 100%;
+  /* margin: 0rem auto 0rem 10rem; */
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
@@ -34,8 +35,8 @@ export const NameProfiles = styled.h1`
 `;
 
 export const ImgProfiles = styled.img`
-  border-radius: 50rem;
-  width: 230px;
+  border-radius: 50%;
+  width: 200px;
   height: 200px;
   margin-bottom: 2rem;
 `;

@@ -25,14 +25,6 @@ export const Modal = styled.div`
   `}
 `;
 
-export const XboxLogo = styled.img`
-  ${() => css`
-    width: 420px;
-    height: 210px;
-    cursor: pointer;
-  `}
-`;
-
 export const FormCreate = styled.form`
   ${({ theme }) => css`
     ${theme.mixins.inputStyle}

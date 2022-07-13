@@ -8,6 +8,11 @@ import * as S from "./style";
 import "./style.css";
 
 export const Profiles = () => {
+
+  // const getAllCharacters = async () => {
+
+  // }
+
   return (
     <section className="Profiles-container">
       <S.MainSection>
@@ -26,7 +31,7 @@ export const Profiles = () => {
           ))}
           <BsPlusCircleDotted className="IconNewProfile" />
         </S.Profiles>
-      </S.MainSection>
+      </S.MainSection>  
     </section>
   );
 };

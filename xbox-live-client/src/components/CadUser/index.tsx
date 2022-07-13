@@ -22,25 +22,25 @@ export const CadUser = () => {
             src={require("../../assets/icons/xbox-logoFavoritoVerde.png")}
           />
           <S.FormCreate>
-            <label className="Label" htmlFor="login">
+            <label className="Label" htmlFor="nome">
               Nome
             </label>
             <input
               className="Input"
               type="text"
-              name="login"
-              id="login"
+              name="nome"
+              id="nome"
               placeholder="Digite seu Nome"
             />
 
-            <label className="Label" htmlFor="senha">
+            <label className="Label" htmlFor="email">
               E-mail
             </label>
             <input
               className="Input"
-              type="password"
-              name="senha"
-              id="senha"
+              type="email"
+              name="email"
+              id="email"
               placeholder="Digite seu E-mail"
             />
 
@@ -55,25 +55,25 @@ export const CadUser = () => {
               placeholder="Digite sua senha"
             />
 
-            <label className="Label" htmlFor="senha">
+            <label className="Label" htmlFor="confirmSenha">
               Confirme sua Senha
             </label>
             <input
               className="Input"
               type="password"
-              name="senha"
-              id="senha"
+              name="confirmSenha"
+              id="confirmSenha"
               placeholder="Digite novamente sua senha"
             />
 
-            <label className="Label" htmlFor="senha">
+            <label className="Label" htmlFor="CPF">
               CPF
             </label>
             <input
               className="Input"
               type="password"
-              name="senha"
-              id="senha"
+              name="CPF"
+              id="CPF"
               placeholder="Digite seu CPF"
             />
             <S.btnCad type="submit">Cadastrar</S.btnCad>
