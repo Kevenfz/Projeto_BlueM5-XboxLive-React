@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import * as S from "./style";
 import { RiLogoutCircleLine } from "react-icons/ri";
-// import swal from "sweetalert";
+import swal from "sweetalert";
 import { loginService } from "../../services/authService";
 
 interface userLogin {
@@ -28,12 +28,17 @@ export const Login = () => {
 
   const loginUser = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const response = await loginService.login(values);
 
+    const response = await loginService.login(values);
     const jwt = response.data.token;
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
+      swal({
+        title: "Seja bem vindo!",
+        icon: "success",
+        timer: 3000,
+      });
       navigate("/profiles");
     }
   };

@@ -22,4 +22,12 @@ const loginService = {
       .catch((error: any) => console.log("ERRO NA CHAMADA:", error)),
 };
 
-export { loginService };
+const userService = {
+  register: (values: userObj) =>
+    api
+      .post("/user/reg-user", values)
+      .then((response: any) => response)
+      .catch((error: any) => error.response),
+};
+
+export { loginService, userService };
