@@ -4,6 +4,7 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 import { userService } from "../../services/authService";
 import React, { useState } from "react";
 import swal from "sweetalert";
+import "../../helpers/sweetAlert.css";
 
 interface userObj {
   name: string;
@@ -15,6 +16,7 @@ interface userObj {
 }
 
 export const CadUser = () => {
+  // const [ confirmPassword, setConfirmPassword] = useState(false);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -36,20 +38,19 @@ export const CadUser = () => {
   const registerUser = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const response = await userService.register(values);
-    const jwt = response.data.token;
-
-    if (jwt) {
-      localStorage.setItem("jwt", jwt);
+    
+    if (response.status == 201) {
       swal({
         title: "Usuário cadastrado com sucesso!",
         icon: "success",
-        timer: 5000,
+        timer: 7000,
       });
       navigate("/login");
     } else {
       swal({
         title: "Erro!",
         text: `${response.data.message}`,
+        icon: "error",
         timer: 7000,
       });
     }

@@ -12,13 +12,13 @@
 body, html, #root {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Home Page */
 #root .Home-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.797) url(/src/assets/images/backgroundHomePage.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -28,8 +28,8 @@ body, html, #root {
 
 /* Login Page */
 #root .Login-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -39,19 +39,19 @@ body, html, #root {
 
 /* Profiles Page */
 #root .Profiles-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: cover;
   background-blend-mode: darken;
 }
 
 /* CadUser page */
 #root .CadUser-container { 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -61,8 +61,8 @@ body, html, #root {
 
 /* Admin Page */
 #root .Admin-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.233) url(/src/assets/images/XboxBackgroundAdmin.png) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -72,8 +72,8 @@ body, html, #root {
 
 /* User Page */
 #root .User-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.233) url(/src/assets/images/xboxBackgroundUser.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -83,8 +83,8 @@ body, html, #root {
 
 /* CadGame Page */
 #root .CadGame-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;

@@ -7,7 +7,7 @@ export const Home = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: ${theme.colors.secundaryColor};
     overflow-x: hidden;
     /* background: ${theme.mixins.homeBackground}; */
@@ -26,7 +26,7 @@ export const Logo = styled.img`
   ${() => css`
     width: 620px;
     height: 310px;
-    margin-top: -40px;
+    margin-top: 40px;
     transition-property: all;
     transition-timing-function: ease-out;
     transition-duration: 2s;
@@ -46,7 +46,7 @@ export const Joystick = styled.img`
   `}
 `;
 
-export const Info = styled.p`
+export const Info = styled.div`
   ${({ theme }) => css`
     width: 50%;
     display: flex;
@@ -54,6 +54,9 @@ export const Info = styled.p`
     font-family: ${theme.constants.modalFontFamily};
     font-size: ${theme.constants.modalFontSize};
     line-height: ${theme.constants.modalLineHeight};
+    p {
+      font-size: 1.4rem;
+    }
   `}
 `;
 

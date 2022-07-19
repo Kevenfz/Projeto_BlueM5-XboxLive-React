@@ -18,7 +18,7 @@ export const Home = () => {
       <S.div>
         <S.Info>
           <S.h1>
-            <h1>Xbox Game Pass</h1>
+            Xbox Game Pass
           </S.h1>
           <p>
             Jogue novos jogos no primeiro dia. Além disso, jogue centenas de

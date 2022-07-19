@@ -19,13 +19,13 @@ const loginService = {
     api
       .post("/auth/login", values)
       .then((response: any) => response)
-      .catch((error: any) => console.log("ERRO NA CHAMADA:", error)),
+      .catch((error: any) => error.response),
 };
 
 const userService = {
   register: (values: userObj) =>
     api
-      .post("/user/reg-user", values)
+      .post("/user/create", values)
       .then((response: any) => response)
       .catch((error: any) => error.response),
 };

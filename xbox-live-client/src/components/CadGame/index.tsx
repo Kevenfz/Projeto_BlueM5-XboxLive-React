@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import "../../helpers/sweetAlert.css";
 
 export const CadGame = () => {
   return (

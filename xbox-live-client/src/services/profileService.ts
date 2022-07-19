@@ -10,4 +10,13 @@ const findAllService = {
       .catch((error: any) => console.log(error)),
 };
 
-export { findAllService };
+const findById = {
+  IdProfile: (id: string) => {
+    api
+      .get(`/perfil/findById/${id}`)
+      .then((response: any) => response)
+      .catch((error: any) => error.response );
+  },
+};
+
+export { findAllService, findById };

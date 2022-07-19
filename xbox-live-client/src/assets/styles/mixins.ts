@@ -213,7 +213,6 @@ const iconBack = () => css`
   top: 1.5rem;
   left: 1.5rem;
   color: #fff;
-  /* background-color: #009D00; */
   padding: 0.3rem;
   font-size: 3rem;
   border-radius: 50%;

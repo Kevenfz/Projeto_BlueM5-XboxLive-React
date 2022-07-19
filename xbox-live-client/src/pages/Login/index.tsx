@@ -5,8 +5,9 @@ import * as S from "./style";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import swal from "sweetalert";
 import { loginService } from "../../services/authService";
+import "../../helpers/sweetAlert.css";
 
-interface userLogin {
+interface UserLogin {
   email: string;
   password: string;
 }
@@ -20,26 +21,36 @@ export const Login = () => {
   let navigate = useNavigate();
 
   const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues((values: userLogin) => ({
+    setValues((values: UserLogin) => ({
       ...values,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const loginUser = async (event: React.SyntheticEvent) => {
+  const LoginUser = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-
+    
     const response = await loginService.login(values);
     const jwt = response.data.token;
+    const user = response.data.user;
+    console.log(user);
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
+      localStorage.setItem("user", JSON.stringify(user));
       swal({
         title: "Seja bem vindo!",
         icon: "success",
-        timer: 3000,
+        timer: 5000,
       });
       navigate("/profiles");
+    } else {
+      swal({
+        title: "ERRO!",
+        text: `${response.data.message}`,
+        icon: "error",
+        timer: 5000,
+      });
     }
   };
 
@@ -62,7 +73,7 @@ export const Login = () => {
             src={require("../../assets/icons/xbox-logoFavoritoVerde.png")}
             alt="Logo Xbox"
           />
-          <S.FormLogin onSubmit={loginUser}>
+          <S.FormLogin onSubmit={LoginUser}>
             <label className="Label" htmlFor="email">
               Login
             </label>
