@@ -19,18 +19,32 @@ interface ProfilesProps {
   };
 }
 
+interface UserProfile {
+  cpf: string;
+  email: string;
+  id: string;
+  isAdmin: boolean;
+  name: string;
+}
+
 export const UserProfiles = () => {
   const [allProfiles, setAllProfiles] = useState<ProfilesProps[]>([]);
+  // const [userProfile, setUserProfile] = useState<UserProfile>({
+  //   cpf: "",
+  //   email: "",
+  //   id: "",
+  //   isAdmin: false,
+  //   name: "",
+  // });
+  const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>(
+    []
+  );
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
   const user = localStorage.getItem("user");
 
-  if (user) {
-    const dataUser = JSON.parse(user);
-    console.log(dataUser);
-  }
-
   useEffect(() => {
+    // getProfileUser();
     getAllProfiles();
   }, []);
 
@@ -45,7 +59,13 @@ export const UserProfiles = () => {
       navigate("/login");
     } else {
       const response = await findAllService.allProfiles();
-      setAllProfiles(response.data)
+      setAllProfiles(response.data);
+
+      if (allProfiles) {
+        findProfiles(response.data);
+        console.log(allProfiles);
+      }
+
       if (response.status === 204) {
         swal({
           title: "Info",
@@ -59,13 +79,29 @@ export const UserProfiles = () => {
     }
   };
 
+  const findProfiles = (profiles: ProfilesProps[]) => {
+    const userId = localStorage.getItem("userId");
+    const profile = profiles.filter((profile) => profile.user.id === userId);
+    console.log(profiles);
+    if (profile) {
+      setUserProfileLogged(profile);
+    }
+  };
+
+  // const getProfileUser = () => {
+  //   if (user) {
+  //     const dataUser = JSON.parse(user);
+  //     setUserProfile(dataUser);
+  //   }
+  // };
+
   return (
     <section className="Profiles-container">
       <S.MainSection>
         <S.Back>
           <RiLogoutCircleLine />
         </S.Back>
-        {allProfiles.map((profile: ProfilesProps, index) => (
+        {userProfileLogged.map((profile: ProfilesProps, index) => (
           <CardProfile profilesProps={profile} key={index} />
         ))}
         <BsPlusCircleDotted className="IconNewProfile" />
