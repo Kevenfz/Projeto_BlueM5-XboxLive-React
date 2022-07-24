@@ -16,7 +16,6 @@ interface userObj {
 }
 
 export const CadUser = () => {
-  // const [ confirmPassword, setConfirmPassword] = useState(false);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -72,7 +71,7 @@ export const CadUser = () => {
             src={require("../../assets/icons/xbox-logoFavoritoVerde.png")}
           />
           <S.FormCreate onSubmit={registerUser}>
-            <label className="Label" htmlFor="name">
+            <label htmlFor="name">
               Nome
             </label>
             <input
@@ -84,7 +83,7 @@ export const CadUser = () => {
               onChange={handleChangeValues}
             />
 
-            <label className="Label" htmlFor="email">
+            <label htmlFor="email">
               E-mail
             </label>
             <input
@@ -96,7 +95,7 @@ export const CadUser = () => {
               onChange={handleChangeValues}
             />
 
-            <label className="Label" htmlFor="password">
+            <label htmlFor="password">
               Senha
             </label>
             <input
@@ -108,7 +107,7 @@ export const CadUser = () => {
               onChange={handleChangeValues}
             />
 
-            <label className="Label" htmlFor="confirmPassword">
+            <label htmlFor="confirmPassword">
               Confirme sua Senha
             </label>
             <input
@@ -120,7 +119,7 @@ export const CadUser = () => {
               onChange={handleChangeValues}
             />
 
-            <label className="Label" htmlFor="cpf">
+            <label htmlFor="cpf">
               CPF
             </label>
             <input

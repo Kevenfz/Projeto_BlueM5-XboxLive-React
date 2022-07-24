@@ -91,3 +91,53 @@ body, html, #root {
   background-position: bottom;
   background-blend-mode: darken;
 }
+
+/* Modal */
+.content-react-modal {
+  width: 100%;
+  max-width: 300px;
+  background-color: #00c000;
+  padding: 3rem;
+  position: relative;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  cursor: context-menu;
+  font-family: "Rajdhani";
+  font-size: 1.5rem;
+}
+
+.close-modal-button {
+  background-color: transparent;
+  color: black;
+  font-size: 1.6rem;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  transition: all .4s;
+  border: none;
+}
+
+.close-modal-button:hover{
+  color: aliceblue;
+}
+
+.overlay-react-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

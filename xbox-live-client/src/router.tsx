@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import { RoutePath } from "./types/routes";
 import { Home } from "./pages/Home/index";
 import { Login } from "./pages/Login";
-import { CadUser } from "./components/CadUser";
-import { UserProfiles } from "./components/Profiles";
-import { AdminPage } from "./components/HomeAdmin";
-import { UserPage } from "./components/HomeUser";
-import { CadGame } from "./components/CadGame";
+import { CadUser } from "./pages/CadUser";
+import { UserProfiles } from "./pages/Profiles";
+import { AdminPage } from "./pages/HomeAdmin";
+import { UserPage } from "./pages/HomeUser";
+import { CadGame } from "./pages/CadGame";
 
 const Router = () => {
   return (

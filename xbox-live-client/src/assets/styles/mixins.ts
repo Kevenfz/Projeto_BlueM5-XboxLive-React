@@ -32,11 +32,10 @@ const modalCreateProfile = () => css`
   border-radius: 15px;
 `;
 
-//TODO Colocar as configuarações que fizer lá no style e jogar tudo aqui, e passar apenas esse thema já do jeito certo sem bugar
 const modalCreateGame = () => css`
   background-color: ${colors.modalColor};
-  width: 508px;
-  height: 473px;
+  width: 500px;
+  height: 530px;
   margin-top: 20px;
   border-radius: 15px;
   display: flex;

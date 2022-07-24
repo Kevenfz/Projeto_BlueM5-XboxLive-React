@@ -30,12 +30,20 @@ export const FormCreate = styled.form`
     ${theme.mixins.inputStyle}
     margin-bottom: 25px;
     margin-top: -25px;
+    label {
+      font-size: 1.2rem;
+    }
+    input::placeholder {
+      color: rgb(128, 128, 128);
+      font-family: ${theme.constants.gameFontFamily};
+      font-weight: bold;
+    }
   `}
 `;
 
 export const Logo = styled.img`
-  width: 115px;
-  height: 114px;
+  width: 90px;
+  height: 90px;
 `;
 
 export const btnCad = styled.button`

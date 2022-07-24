@@ -1,21 +1,19 @@
 .IconEdit {
-  width: 25px;
-  height: 25px;
+  font-size: 2rem;
+  background-color: transparent;
   color: #fff;
   transition: all 0.4s;
   cursor: pointer;
-  -webkit-box-shadow: -1px 10px 15px -3px rgba(0, 0, 0, 0.75);
-  box-shadow: -1px 10px 15px -3px rgba(0, 0, 0, 0.75);
 }
 
 .IconEdit:hover {
   color: #10c800;
-  transform: scale(1.2);
+  transform: scale(1.03);
 }
 
 .IconNewProfile {
-  width: 100px;
-  height: 70px;
+  width: 80px;
+  height: 65px;
   color: #fff;
   transition: all 0.4s;
   justify-content: center;
@@ -25,7 +23,7 @@
 
 .IconNewProfile:hover {
   color: #10c800;
-  transform: scale(1.2);
+  transform: scale(1.03);
 }
 
 .link {

@@ -38,7 +38,7 @@ export const ImgGame = styled.img`
   transition: all 0.5s;
   cursor: pointer;
   :hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 `;
 
@@ -58,7 +58,7 @@ export const SpaceAdmin = styled.header`
   font-size: 12px;
 `;
 
-export const InfoAdmin = styled.nav`
+export const InfoUser = styled.nav`
   display: flex;
   flex-direction: column;
   cursor: context-menu;
@@ -68,17 +68,18 @@ export const IconBack = styled.aside`
   ${({ theme }) => css`
     position: absolute;
     font-size: 2rem;
-    left: 11.5rem;
+    left: 9.5rem;
+    top: 1.5rem;
     transition: all 0.5s;
     cursor: pointer;
     :hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       color: #10c800;
     }
   `}
 `;
 
-export const IconsEditAdmin = styled.aside`
+export const IconsUser = styled.aside`
   ${({ theme }) => css`
     position: absolute;
     display: flex;
@@ -101,11 +102,13 @@ export const IconsEditAdmin = styled.aside`
       cursor: context-menu;
     }
     .Create-Game:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
+
       color: #10c800;
     }
     .Edit-User:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
+
       color: #10c800;
     }
   `}
@@ -126,7 +129,8 @@ export const Generos = styled.section`
     cursor: pointer;
     h2:hover {
       color: #10c800;
-    }`}
+    }
+  `}
 `;
 
 export const TitleGeneros = styled.div`
@@ -141,11 +145,10 @@ export const TitleGeneros = styled.div`
     top: 2.5rem;
     font-weight: bold;
     font-size: 3.5rem;
-    cursor: pointer;
   }
   :hover {
     color: #10c800;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 

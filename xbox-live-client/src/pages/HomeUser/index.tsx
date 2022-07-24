@@ -3,11 +3,20 @@ import { games } from "../../mocks/games";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
+interface Profiles {
+  id: string;
+  title: string;
+  imgUrl: string;
+}
+
+
 export const UserPage = () => {
   const navigate = useNavigate();
+  
   const ProfilePage = () => {
     navigate("/profiles")
   }
+  
   return (
     <section className="User-container">
       <S.SpaceAdmin>
@@ -28,8 +37,8 @@ export const UserPage = () => {
 
       <S.GameSection>
         <h1>Favoritos</h1>
-        {games.map((games) => (
-          <S.AllGames>
+        {games.map((games, index) => (
+          <S.AllGames key={index}>
             <S.ImgGame src={games.imgUrl} alt={`Capa do jogo ${games.title}`} />
             <h3>Score: ({games.score}) STARS </h3>
             {/* <S.IconFavWhite

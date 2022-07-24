@@ -12,7 +12,7 @@ export const MainSection = styled.section`
     font-family: ${theme.constants.newUserFontFamily};
     font-size: ${theme.constants.newUserFontSize};
     h1 {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
   `}
 `;
@@ -24,29 +24,34 @@ export const CadModal = styled.section`
 `;
 
 export const LogoModal = styled.img`
-  width: 115px;
-  height: 114px;
+  width: 90px;
+  height: 90px;
   margin-top: -3rem;
 `;
 
-export const HeaderModal = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-  input{
-    margin-bottom: 20px;
-    border: 1px dashed #DDD;
-    background-size: cover;
-    cursor: pointer;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+export const headerModal = styled.div`
+  ${({ theme }) => css`
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: center;
+    gap: 1.6rem;
+    span {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all .4s;
+      :hover {
+        transform: scale(1.02);
+        color: ${theme.colors.primaryColor};
+      }
+    }
+  `}
+`;
+
+export const ImgModal = styled.img`
+  width: 75px;
+  height: 52px;
+  margin-top: 1.4rem;
 `;
 
 export const MiddleForm = styled.form`
@@ -54,7 +59,7 @@ export const MiddleForm = styled.form`
     ${theme.mixins.InputCreateGameStyle}
     margin-top: 1rem;
     input {
-      padding: 7px;
+      padding: 8px;
       border-radius: 5px;
       border: none;
       outline: none;
@@ -70,6 +75,8 @@ export const MiddleForm = styled.form`
     }
     input::placeholder {
       color: rgb(128, 128, 128);
+      font-family: ${theme.constants.gameFontFamily};
+      font-weight: bold;
     }
     textarea {
       width: 393px;
@@ -90,13 +97,18 @@ export const MiddleForm = styled.form`
     }
     textarea::placeholder {
       color: rgb(128, 128, 128);
+      font-family: ${theme.constants.gameFontFamily};
+      font-weight: bold;
+    }
+    .url-img {
+      width: 24.5rem;
+      padding: 8px;
     }
   `}
 `;
 
 export const ButtonModal = styled.button`
   ${({ theme }) => css`
-    ${theme.mixins.btnOnStyle}
-    margin-top: 1rem;
+    ${theme.mixins.btnOnStyle}/* margin-bottom: 2rem; */
   `}
 `;

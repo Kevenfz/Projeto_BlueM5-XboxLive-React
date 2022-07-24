@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { BsPlusCircleDotted } from "react-icons/bs";
-import { RiLogoutCircleLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { findAllService } from "../../services/profileService";
 import { CardProfile } from "./CardProfile/index";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { ModalProfile } from "../../components/Modals/ModalProfile";
+import { TiUserAdd } from "react-icons/ti";
+import swal from "sweetalert";
 import * as S from "./style";
 import "./style.css";
-import swal from "sweetalert";
 
 interface ProfilesProps {
   id: string;
@@ -19,32 +20,22 @@ interface ProfilesProps {
   };
 }
 
-interface UserProfile {
-  cpf: string;
-  email: string;
-  id: string;
-  isAdmin: boolean;
-  name: string;
-}
-
 export const UserProfiles = () => {
   const [allProfiles, setAllProfiles] = useState<ProfilesProps[]>([]);
-  // const [userProfile, setUserProfile] = useState<UserProfile>({
-  //   cpf: "",
-  //   email: "",
-  //   id: "",
-  //   isAdmin: false,
-  //   name: "",
-  // });
-  const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>(
-    []
-  );
+  const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [refreshProfile, setRefreshProfile] = useState(false)
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
-  const user = localStorage.getItem("user");
+
+  const updateProfiles = (refreshProf: boolean) => {
+    setRefreshProfile(refreshProf);
+    setTimeout(() => {
+      setRefreshProfile(false);
+    }, 100)
+  }
 
   useEffect(() => {
-    // getProfileUser();
     getAllProfiles();
   }, []);
 
@@ -63,7 +54,6 @@ export const UserProfiles = () => {
 
       if (allProfiles) {
         findProfiles(response.data);
-        console.log(allProfiles);
       }
 
       if (response.status === 204) {
@@ -82,29 +72,44 @@ export const UserProfiles = () => {
   const findProfiles = (profiles: ProfilesProps[]) => {
     const userId = localStorage.getItem("userId");
     const profile = profiles.filter((profile) => profile.user.id === userId);
-    console.log(profiles);
     if (profile) {
       setUserProfileLogged(profile);
     }
   };
+  
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
 
-  // const getProfileUser = () => {
-  //   if (user) {
-  //     const dataUser = JSON.parse(user);
-  //     setUserProfile(dataUser);
-  //   }
-  // };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section className="Profiles-container">
       <S.MainSection>
         <S.Back>
-          <RiLogoutCircleLine />
+          <RiLogoutCircleLine onClick={logout}/>
         </S.Back>
         {userProfileLogged.map((profile: ProfilesProps, index) => (
           <CardProfile profilesProps={profile} key={index} />
         ))}
-        <BsPlusCircleDotted className="IconNewProfile" />
+        <TiUserAdd onClick={openModal} className="IconNewProfile" />
+        <ModalProfile
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          type="createProfile"
+          title="Criar Perfil"
+          btnName="Criar"
+          id=""
+          // inputChanges={} //TODO mandar as props do profile para cá com as funções handleChanges etc
+          // newProfile
+        />
       </S.MainSection>
     </section>
   );

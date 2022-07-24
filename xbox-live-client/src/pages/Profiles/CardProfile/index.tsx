@@ -1,37 +1,27 @@
-import { FiEdit } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { FaUserEdit } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as S from "../style";
 
 interface ProfilerProps {
-  profilesProps: {
-    id: string;
-    title: string;
-    imgUrl: string;
-    user: {
-      id: string;
-      isAdmin: boolean;
-      name: string;
-    };
-  };
+  profilesProps: Profiles;
 }
 
-interface UserProfile {
-  cpf: string;
-  email: string;
+interface Profiles {
+  id: string;
+  title: string;
+  imgUrl: string;
+  user: User;
+}
+
+interface User {
   id: string;
   isAdmin: boolean;
   name: string;
 }
 
 export const CardProfile = ({ profilesProps }: ProfilerProps) => {
-  const [userProfile, setUserProfile] = useState<UserProfile>({
-    cpf: "",
-    email: "",
-    id: "",
-    isAdmin: false,
-    name: "",
-  });
+  const [userProfile, setUserProfile] = useState<Profiles>(profilesProps);
   const navigate = useNavigate();
   const user = localStorage.getItem("user");
 
@@ -39,15 +29,15 @@ export const CardProfile = ({ profilesProps }: ProfilerProps) => {
     if (user) {
       const dataUser = JSON.parse(user);
       setUserProfile(dataUser);
-      console.log(userProfile);
-      
-      if (userProfile.isAdmin === true) {
-        navigate("/user-page");
-      } else {
+
+      if (userProfile.user.isAdmin === true) {
         navigate("/admin-page");
+      } else {
+        navigate("/user-page");
       }
     }
   };
+
   return (
     <S.Profiles>
       <S.Cards>
@@ -56,7 +46,7 @@ export const CardProfile = ({ profilesProps }: ProfilerProps) => {
         </S.NamesProfiles>
         <S.ImgProfiles onClick={getProfileUser} src={profilesProps.imgUrl} />
         <div>
-          <FiEdit className="IconEdit" />
+          <FaUserEdit className="IconEdit" />
         </div>
       </S.Cards>
     </S.Profiles>

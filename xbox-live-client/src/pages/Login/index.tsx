@@ -34,13 +34,12 @@ export const Login = () => {
     const jwt = response.data.token;
     const user = response.data.user;
     const userId = response.data.user.id;
-    console.log(userId);
-    
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
-      localStorage.setItem("userId", userId);
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userId", userId);
+
       swal({
         title: "Seja bem vindo!",
         icon: "success",
