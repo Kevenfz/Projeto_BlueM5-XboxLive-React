@@ -78,7 +78,7 @@ export const ModalGender = ({
         <h2 className="modal-title">{title}</h2>
         <form onSubmit={newGenderGame} className="form-modal">
           <label className="label-modal" htmlFor="genero">
-            Gênero do game
+            Gênero do Game
           </label>
           <input
             type="text"

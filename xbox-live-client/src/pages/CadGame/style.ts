@@ -106,7 +106,6 @@ export const MiddleForm = styled.form`
       font-weight: bold;
     }
     .url-img {
-      width: 24.5rem;
       padding: 8px;
     }
     .description {

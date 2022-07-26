@@ -41,22 +41,22 @@ export const CadGame = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
-  
-  const styles = {
-    control: styles => ({...styles, backgroundColor: "#3a3a3a9b"}),
-    option: (styles, {data, isDisable, isFocused, isSelected}) => {
-      const color = chroma(data.color);
-    return {
-      ...styles,
-      backgroundColor: isDisable ? 'red' : 'blue',
-      color: '#FFF',
-      cursor: isDisable ? 'not-allowed' : 'default',
-      ...
-    };
-  },
-  ...
-    }
-  };
+
+  // const styles = {
+  //   control: styles => ({...styles, backgroundColor: "#3a3a3a9b"}),
+  //   option: (styles, {data, isDisable, isFocused, isSelected}) => {
+  //     const color = chroma(data.color);
+  //   return {
+  //     ...styles,
+  //     backgroundColor: isDisable ? 'red' : 'blue',
+  //     color: '#FFF',
+  //     cursor: isDisable ? 'not-allowed' : 'default',
+  //     ...
+  //   };
+  // },
+  // ...
+  //   }
+  // };
 
   useEffect(() => {
     getGenders();
@@ -156,7 +156,7 @@ export const CadGame = () => {
             isOpen={isModalOpen}
             closeModal={closeModal}
             type="createGender"
-            title="Criar Genero"
+            title="Criar Gênero"
             btnName="Criar"
             id=""
           />
@@ -187,15 +187,6 @@ export const CadGame = () => {
             onChange={handleChangesValue}
           />
 
-          <Select
-            name="genero"
-            options={genderOptions}
-            onChange={handleChangesGender}
-            placeholder={'Selecione um gênero...'}
-            isMulti
-            styles={styles}
-          />
-
           <input
             type="url"
             name="traillerYtUrl"
@@ -221,20 +212,21 @@ export const CadGame = () => {
             onChange={handleChangesValue}
           />
 
-          <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="Descrição do game"
-            className="description"
-            onChange={handleChangesValue}
-          />
-
           <textarea
             name="description"
             id="description"
             placeholder="Descrição"
             onChange={handleChangesValue}
+          />
+
+          <Select
+            name="genero"
+            options={genderOptions}
+            onChange={handleChangesGender}
+            placeholder={"Selecione um gênero..."}
+            isMulti
+            
+            // styles={styles}
           />
           <S.ButtonModal type="submit">Cadastrar</S.ButtonModal>
         </S.MiddleForm>
