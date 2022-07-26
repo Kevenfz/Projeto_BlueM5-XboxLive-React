@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { profileService } from "../../../services/profileService";
 import { BiX } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { genderService } from "../../../services/genderService";
 import Modal from "react-modal";
 import swal from "sweetalert";
 import "./style.css";
-
-Modal.setAppElement("#root");
 
 interface modalProps {
   isOpen: boolean; //modal aberto
@@ -18,12 +15,11 @@ interface modalProps {
   id: string; // id do profile para edição
 }
 
-interface newProfile {
-  imgUrl: string;
-  title: string;
+interface newGender {
+  genero: string;
 }
 
-export const ModalProfile = ({
+export const ModalGender = ({
   isOpen,
   closeModal,
   type,
@@ -31,32 +27,28 @@ export const ModalProfile = ({
   btnName,
   id,
 }: modalProps) => {
-  const [createNewProfile, setCreateNewProfile] = useState<newProfile>({
-    imgUrl: "",
-    title: "",
+  const [createNewGender, setCreateNewGender] = useState<newGender>({
+    genero: "",
   });
-  const navigate = useNavigate();
 
   const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCreateNewProfile((values: newProfile) => ({
+    setCreateNewGender((values: newGender) => ({
       ...values,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const newProfileUser = async (event: React.SyntheticEvent) => {
+  const newGenderGame = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const response = await profileService.register(createNewProfile);
-    console.log(response);
-    
+    const response = await genderService.register(createNewGender);
+
     if (response.status == 201) {
       swal({
-        title: "Perfil criado com sucesso!",
+        title: "Gênero criado com sucesso!",
         icon: "success",
         timer: 7000,
       });
       closeModal();
-      navigate("/profiles")
     } else {
       swal({
         title: "Erro!",
@@ -82,28 +74,20 @@ export const ModalProfile = ({
         >
           <BiX />
         </button>
+
         <h2 className="modal-title">{title}</h2>
-        <form onSubmit={newProfileUser} className="form-modal">
-          <label className="label-modal" htmlFor="title">
-            Nome do Perfil
+        <form onSubmit={newGenderGame} className="form-modal">
+          <label className="label-modal" htmlFor="genero">
+            Gênero do game
           </label>
           <input
             type="text"
-            name="title"
-            id="title"
-            placeholder="Nome do Perfil"
+            name="genero"
+            id="genero"
+            placeholder="Nome do Gênero"
             onChange={handleChangesValues}
           />
-          <label className="label-modal" htmlFor="imgUrl">
-            Url da Imagem
-          </label>
-          <input
-            type="text"
-            name="imgUrl"
-            id="imgUrl"
-            placeholder="Url da imagem"
-            onChange={handleChangesValues}
-          />
+
           <button className="btn-modal" type="submit">
             {btnName}
           </button>

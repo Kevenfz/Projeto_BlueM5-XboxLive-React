@@ -8,9 +8,7 @@ interface GameObj {
     score: number;
     traillerYtUrl: string;
     GplayYtUrl: string;
-    genero: {
-      genero: string;
-    };
+    genero: string[];
   }
 
   const gameService = {

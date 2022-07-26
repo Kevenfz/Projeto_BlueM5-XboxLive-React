@@ -35,7 +35,9 @@ export const headerModal = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1.6rem;
-    span {
+    .addGender {
+      display: flex;
+      align-items: center;
       margin-top: 1rem;
       font-size: 1.5rem;
       cursor: pointer;
@@ -43,6 +45,9 @@ export const headerModal = styled.div`
       :hover {
         transform: scale(1.02);
         color: ${theme.colors.primaryColor};
+      }
+      .icon {
+        margin-top: 4px;
       }
     }
   `}
@@ -103,6 +108,22 @@ export const MiddleForm = styled.form`
     .url-img {
       width: 24.5rem;
       padding: 8px;
+    }
+    .description {
+      width: 393px;
+      height: 100px;
+      padding: 7px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: ${theme.colors.secundaryColor};
+      background: #3a3a3a9b;
+      transition: all 0.6s;
+      ::placeholder {
+        position: absolute;
+        top: .8rem;
+      }
     }
   `}
 `;

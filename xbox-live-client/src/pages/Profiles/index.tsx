@@ -28,6 +28,7 @@ export const UserProfiles = () => {
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
 
+  //TODO Atualização dos profiles quando cadastra um novo e edição no modal
   const updateProfiles = (refreshProf: boolean) => {
     setRefreshProfile(refreshProf);
     setTimeout(() => {
