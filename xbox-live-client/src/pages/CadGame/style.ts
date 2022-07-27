@@ -56,7 +56,7 @@ export const headerModal = styled.div`
 export const ImgModal = styled.img`
   width: 75px;
   height: 52px;
-  margin-top: 1.4rem;
+  margin-top: 1rem;
 `;
 
 export const MiddleForm = styled.form`

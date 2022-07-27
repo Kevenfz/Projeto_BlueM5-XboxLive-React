@@ -1,15 +1,61 @@
-import * as S from "./style";
-import { games } from "../../mocks/games";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { allGamesService } from "../../services/gameService";
+import { useEffect, useState } from "react";
+import * as S from "./style";
+import swal from "sweetalert";
+
+interface Games {
+  title: string;
+  imgUrl: string;
+  description: string;
+  year: string;
+  score: number;
+  traillerYtUrl: string;
+  GplayYtUrl: string;
+  genero: string[];
+}
 
 export const AdminPage = () => {
+  const [allGames, setAllGames] = useState<Games[]>([{
+    title: "",
+    imgUrl: "",
+    description: "",
+    year: "",
+    score: 0,
+    traillerYtUrl: "",
+    GplayYtUrl: "",
+    genero: [],
+  }]);
+  const jwt = localStorage.getItem("jwt");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getAllGames();
+  }, []);
+
+  const getAllGames = async () => {
+    if (!jwt) {
+      swal({
+        title: "ERRO!",
+        text: "Faça login antes de entrar na pagina de perfis.",
+        icon: "error",
+        timer: 7000,
+      });
+      navigate("/login");
+    } else {
+      const games = await allGamesService.allGames();
+      debugger
+      setAllGames(games.data);
+      console.log(allGames);
+    }
+  };
+
   const ProfilePage = () => {
-    navigate("/profiles")
-  }
+    navigate("/profiles");
+  };
   return (
     <section className="Admin-container">
       <S.SpaceAdmin>
@@ -31,11 +77,12 @@ export const AdminPage = () => {
       </S.IconsEditAdmin>
 
       <S.GameSection>
-        <h1>Favoritos</h1>
-        {games.map((games) => (
-          <S.AllGames>
+        <h1>Games</h1>
+        {allGames.map((games, index) => (
+          <S.AllGames key={index}>
             <S.ImgGame src={games.imgUrl} alt={`Capa do jogo ${games.title}`} />
-            <h3>Score: ({games.score}) STARS </h3>
+            <h2>{games.score}</h2>
+            <p>{games.genero}</p>
             {/* <S.IconFavWhite
               src={require("../../assets/icons/xbox-logoFaviritoBranco.png")}
             /> */}
@@ -43,7 +90,6 @@ export const AdminPage = () => {
         ))}
       </S.GameSection>
 
-      {/* <span>FPS</span> */}
       <S.Generos>
         <h2>Generos</h2>
         <S.TitleGeneros>

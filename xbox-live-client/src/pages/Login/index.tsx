@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
-import * as S from "./style";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import swal from "sweetalert";
 import { loginService } from "../../services/authService";
+import * as S from "./style";
+import swal from "sweetalert";
+import "./style.css";
 import "../../helpers/sweetAlert.css";
 
 interface UserLogin {

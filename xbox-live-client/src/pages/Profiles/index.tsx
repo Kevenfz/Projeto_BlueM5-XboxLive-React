@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { findAllService } from "../../services/profileService";
 import { CardProfile } from "./CardProfile/index";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { ModalProfile } from "../../components/Modals/ModalProfile";
 import { TiUserAdd } from "react-icons/ti";
+import { userLoggedService } from "../../services/authService"; 
 import swal from "sweetalert";
 import * as S from "./style";
 import "./style.css";
@@ -13,32 +14,38 @@ interface ProfilesProps {
   id: string;
   title: string;
   imgUrl: string;
-  user: {
-    id: string;
-    isAdmin: boolean;
-    name: string;
-  };
+  user: User;
 }
 
-export const UserProfiles = () => {
+interface User {
+  id: string;
+  isAdmin: boolean;
+  name: string;
+}
+
+export const UserProfiles = ({}) => {
   const [allProfiles, setAllProfiles] = useState<ProfilesProps[]>([]);
   const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [refreshProfile, setRefreshProfile] = useState(false)
+  const [refreshProfiles, setRefreshProfiles] = useState(false);
+  const [userLogged, setUserLogged] = useState<User>({
+    id: "",
+    isAdmin: false,
+    name: "",
+  });
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
 
-  //TODO Atualização dos profiles quando cadastra um novo e edição no modal
-  const updateProfiles = (refreshProf: boolean) => {
-    setRefreshProfile(refreshProf);
-    setTimeout(() => {
-      setRefreshProfile(false);
-    }, 100)
-  }
-
   useEffect(() => {
     getAllProfiles();
-  }, []);
+  }, [refreshProfiles]);
+
+  const updateProfiles = (refreshChar: boolean) => { 
+    setRefreshProfiles(refreshChar);
+    setTimeout(() => {
+      setRefreshProfiles(false);
+    }, 100);
+  }
 
   const getAllProfiles = async () => {
     if (!jwt) {
@@ -77,7 +84,7 @@ export const UserProfiles = () => {
       setUserProfileLogged(profile);
     }
   };
-  
+
   const logout = () => {
     localStorage.clear();
     navigate("/login");
@@ -95,21 +102,20 @@ export const UserProfiles = () => {
     <section className="Profiles-container">
       <S.MainSection>
         <S.Back>
-          <RiLogoutCircleLine onClick={logout}/>
+          <RiLogoutCircleLine onClick={logout} />
         </S.Back>
         {userProfileLogged.map((profile: ProfilesProps, index) => (
-          <CardProfile profilesProps={profile} key={index} />
+          <CardProfile profilesProps={profile} key={index} updateProfiles={updateProfiles} userLogged={userLogged} />
         ))}
         <TiUserAdd onClick={openModal} className="IconNewProfile" />
         <ModalProfile
           isOpen={isModalOpen}
           closeModal={closeModal}
-          type="createProfile"
+          type="createProfiles"
           title="Criar Perfil"
           btnName="Criar"
+          onChanges={updateProfiles}
           id=""
-          // inputChanges={} //TODO mandar as props do profile para cá com as funções handleChanges etc
-          // newProfile
         />
       </S.MainSection>
     </section>
