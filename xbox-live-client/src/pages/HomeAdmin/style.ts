@@ -1,30 +1,35 @@
 import styled, { css } from "styled-components";
 import theme from "../../assets/styles/theme";
 
-export const GameSection = styled.section`
+export const InfosGames = styled.section`
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+`;
+
+export const GameSection = styled.div`
   ${({ theme }) => css`
-    width: 80%;
+    width: 65%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     color: ${theme.colors.secundaryColor};
-    margin: 0rem auto 0rem 10rem;
-    gap: 3rem;
-    h1 {
-      position: absolute;
-      top: 6.5rem;
-      left: 3rem;
-      font-size: 2.5rem;
-      cursor: context-menu;
-      font-family: ${theme.constants.gameFontFamily};
-    }
+    margin: 0;
   `}
 `;
 
-export const AllGames = styled.section`
-  width: 100%;
-  margin: 0;
-  margin-top: 8rem;
+export const AllGames = styled.div`
+  width: 27%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
   h3 {
     text-align: center;
   }
@@ -61,6 +66,7 @@ export const SpaceAdmin = styled.header`
 export const InfoAdmin = styled.nav`
   display: flex;
   flex-direction: column;
+  gap: .2rem;
   cursor: context-menu;
 `;
 
@@ -68,12 +74,11 @@ export const IconBack = styled.aside`
   ${({ theme }) => css`
     position: absolute;
     font-size: 2rem;
-    left: 11.5rem;
+    left: 11.3rem;
     transition: all 0.5s;
     cursor: pointer;
     :hover {
       transform: scale(1.05);
-
       color: #10c800;
     }
   `}
@@ -121,14 +126,15 @@ export const Generos = styled.section`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
     gap: 2rem;
     color: ${theme.colors.secundaryColor};
     font-family: ${theme.constants.gameFontFamily};
     font-size: 2rem;
     cursor: pointer;
-    h2:hover {
-      color: #10c800;
+    h2 {
+      cursor: context-menu;
     }
   `}
 `;
@@ -160,3 +166,4 @@ export const imgGeneros = styled.img`
   filter: brightness(0.5);
   cursor: pointer;
 `;
+

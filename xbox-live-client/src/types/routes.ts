@@ -3,7 +3,8 @@ export enum RoutePath {
   LOGIN = "/login",
   CADUSERS = "/cad-users",
   PROFILES = "/profiles",
-  ADMINPAGE = "/admin-page",
-  USERPAGE = "/user-page",
+  ADMINPAGE = "profiles/admin-page/:id",
+  USERPAGE = "profiles/user-page/:id",
   CADGAME = "/cad-games",
+  INFOSGAME = "profiles/game/:id",
 }

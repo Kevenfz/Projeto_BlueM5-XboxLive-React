@@ -1,29 +1,34 @@
 import styled, { css } from "styled-components";
 import theme from "../../assets/styles/theme";
 
+export const InfosGames = styled.section`
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+`;
+
 export const GameSection = styled.section`
   ${({ theme }) => css`
     width: 80%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     color: ${theme.colors.secundaryColor};
-    margin: 0rem auto 0rem 10rem;
-    gap: 3rem;
-    h1 {
-      position: absolute;
-      top: 6.5rem;
-      left: 3rem;
-      font-size: 2.5rem;
-      cursor: context-menu;
-      font-family: ${theme.constants.gameFontFamily};
-    }
+    margin: 0;
   `}
 `;
 
 export const AllGames = styled.section`
-  width: 100%;
-  margin: 0;
+  width: 27%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 8rem;
   h3 {
     text-align: center;
@@ -61,6 +66,7 @@ export const SpaceAdmin = styled.header`
 export const InfoUser = styled.nav`
   display: flex;
   flex-direction: column;
+  gap: .4rem;
   cursor: context-menu;
 `;
 
@@ -68,7 +74,7 @@ export const IconBack = styled.aside`
   ${({ theme }) => css`
     position: absolute;
     font-size: 2rem;
-    left: 9.5rem;
+    left: 11.3rem;
     top: 1.5rem;
     transition: all 0.5s;
     cursor: pointer;

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { findAllGender } from "../../services/genderService";
 import { ModalGender } from "../../components/Modals/ModalGender";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { RiLogoutCircleLine } from "react-icons/ri";
 import swal from "sweetalert";
 import Select from "react-select";
 import * as S from "./style";
@@ -41,22 +42,6 @@ export const CadGame = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
-
-  // const styles = {
-  //   control: styles => ({...styles, backgroundColor: "#3a3a3a9b"}),
-  //   option: (styles, {data, isDisable, isFocused, isSelected}) => {
-  //     const color = chroma(data.color);
-  //   return {
-  //     ...styles,
-  //     backgroundColor: isDisable ? 'red' : 'blue',
-  //     color: '#FFF',
-  //     cursor: isDisable ? 'not-allowed' : 'default',
-  //     ...
-  //   };
-  // },
-  // ...
-  //   }
-  // };
 
   useEffect(() => {
     getGenders();
@@ -137,8 +122,15 @@ export const CadGame = () => {
     setIsModalOpen(false);
   };
 
+  const ProfilePage = () => {
+    navigate("/admin-page");
+  };
+
   return (
     <S.MainSection className="CadGame-container">
+      <S.Back>
+      <RiLogoutCircleLine onClick={ProfilePage} />
+      </S.Back>
       <h1>Cadastrar Game</h1>
       <S.CadModal>
         <S.LogoModal

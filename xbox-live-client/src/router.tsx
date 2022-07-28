@@ -7,6 +7,7 @@ import { UserProfiles } from "./pages/Profiles";
 import { AdminPage } from "./pages/HomeAdmin";
 import { UserPage } from "./pages/HomeUser";
 import { CadGame } from "./pages/CadGame";
+import { GamesInfo } from "./pages/GamesInfo";
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
       <Route path={RoutePath.ADMINPAGE} element={<AdminPage />} />
       <Route path={RoutePath.USERPAGE} element={<UserPage />} />
       <Route path={RoutePath.CADGAME} element={<CadGame />} />
+      <Route path={RoutePath.INFOSGAME} element={<GamesInfo />} />
     </Routes>
   );
 };

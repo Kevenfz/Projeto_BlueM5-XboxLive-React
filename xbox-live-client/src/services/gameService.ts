@@ -27,4 +27,12 @@ const allGamesService = {
       .catch((error: any) => error.response),
 };
 
-export { gameService, allGamesService };
+const findById = {
+  IdGame: (id: string) =>
+    api
+      .get(`/game/findById/${id}`)
+      .then((response: any) => response)
+      .catch((error: any) => error.response),
+};
+
+export { gameService, allGamesService, findById };

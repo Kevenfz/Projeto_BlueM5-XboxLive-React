@@ -2,7 +2,9 @@ import { FaUserEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ModalProfile } from "../../../components/Modals/ModalProfile";
+import { AdminPage } from "../../HomeAdmin";
 import * as S from "../style";
+import { UserProfiles } from "..";
 
 interface ProfilerProps {
   profilesProps: Profiles;
@@ -23,7 +25,11 @@ interface User {
   name: string;
 }
 
-export const CardProfile = ({ profilesProps, updateProfiles }: ProfilerProps) => {
+
+export const CardProfile = ({
+  profilesProps,
+  updateProfiles,
+}: ProfilerProps) => {
   const [userProfile, setUserProfile] = useState<Profiles>(profilesProps);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -35,16 +41,16 @@ export const CardProfile = ({ profilesProps, updateProfiles }: ProfilerProps) =>
       setUserProfile(dataUser);
 
       if (userProfile.user.isAdmin === true) {
-        navigate("/admin-page");
+        navigate(`admin-page/${profilesProps.id}`);
       } else {
-        navigate("/user-page");
+        navigate(`user-page/${profilesProps.id}`);
       }
     }
   };
 
   const openModal = () => {
     setIsModalOpen(true);
-  }
+  };
 
   function onEdit() {
     updateProfiles(true);
@@ -60,17 +66,20 @@ export const CardProfile = ({ profilesProps, updateProfiles }: ProfilerProps) =>
         <S.NamesProfiles onClick={getProfileUser}>
           {profilesProps.title}
         </S.NamesProfiles>
-        <S.ImgProfiles onClick={getProfileUser} src={profilesProps.imgUrl} />
+        <S.ImgProfiles
+          onClick={getProfileUser}
+          src={profilesProps.imgUrl}
+        />
         <div>
           <FaUserEdit onClick={openModal} className="IconEdit" />
           <ModalProfile
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          type="editProfiles"
-          title="Editar Perfil"
-          btnName="Atualizar"
-          onChanges={onEdit}
-          id={profilesProps.id}
+            isOpen={isModalOpen}
+            closeModal={closeModal}
+            type="editProfiles"
+            title="Editar Perfil"
+            btnName="Atualizar"
+            onChanges={onEdit}
+            id={profilesProps.id}
           />
         </div>
       </S.Cards>

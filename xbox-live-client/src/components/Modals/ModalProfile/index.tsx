@@ -26,7 +26,6 @@ interface modalProps {
 interface newProfile {
   imgUrl: string;
   title: string;
-  game?: [];
 }
 
 export const ModalProfile = ({
@@ -82,7 +81,10 @@ export const ModalProfile = ({
 
   const getProfileById = async () => {
     const response = await findById.IdProfile(id);
-    setCreateNewProfile(response.data);
+    setCreateNewProfile({
+      imgUrl: response.data.imgUrl,
+      title: response.data.title,
+    });
   };
 
   const editProfileUser = async () => {
@@ -122,9 +124,9 @@ export const ModalProfile = ({
     const response = await deleteService.deleteProfiles(id);
     swal({
       text: "Perfil apagado com sucesso!",
-      icon: 'success',
-      timer: 7000
-    })
+      icon: "success",
+      timer: 7000,
+    });
     onChanges(response);
     closeModal();
   };
@@ -133,8 +135,8 @@ export const ModalProfile = ({
     event.preventDefault();
     if (type === "createProfiles") {
       newProfileUser();
-    } 
-    if (type === "editProfiles")  {
+    }
+    if (type === "editProfiles") {
       editProfileUser();
     }
   };

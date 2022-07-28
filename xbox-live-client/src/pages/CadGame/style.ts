@@ -41,7 +41,7 @@ export const headerModal = styled.div`
       margin-top: 1rem;
       font-size: 1.5rem;
       cursor: pointer;
-      transition: all .4s;
+      transition: all 0.4s;
       :hover {
         transform: scale(1.02);
         color: ${theme.colors.primaryColor};
@@ -121,7 +121,7 @@ export const MiddleForm = styled.form`
       transition: all 0.6s;
       ::placeholder {
         position: absolute;
-        top: .8rem;
+        top: 0.8rem;
       }
     }
   `}
@@ -130,5 +130,11 @@ export const MiddleForm = styled.form`
 export const ButtonModal = styled.button`
   ${({ theme }) => css`
     ${theme.mixins.btnOnStyle}/* margin-bottom: 2rem; */
+  `}
+`;
+
+export const Back = styled.aside`
+  ${({ theme }) => css`
+    ${theme.mixins.iconBack}
   `}
 `;
