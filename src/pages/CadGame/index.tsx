@@ -80,7 +80,7 @@ export const CadGame = () => {
         icon: "success",
         timer: 7000,
       });
-      navigate("/admin-page");
+      navigate("/profiles");
     } else {
       swal({
         title: "Erro!",
@@ -123,7 +123,7 @@ export const CadGame = () => {
   };
 
   const ProfilePage = () => {
-    navigate("/admin-page");
+    navigate("/profiles");
   };
 
   return (
