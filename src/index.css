@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Rajdhani:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Questrial&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  /* overflow-x: hidden; */
+}
+
+/* Home Page */
+#root .Home-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.797) url(/src/assets/images/backgroundHomePage.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+}
+
+/* Login Page */
+#root .Login-container {
+  width: 100%;
+  background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+}
+
+/* Profiles Page */
+#root .Profiles-container {
+  width: 100%;
+  height: 100%;
+  background: url(/src/assets/images/MainBackground1.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: cover;
+  background-blend-mode: darken;
+}
+
+/* CadUser page */
+#root .CadUser-container { 
+  width: 100%;
+  background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+}
+
+/* Admin Page */
+/* #root .Admin-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.233) url(/src/assets/images/XboxBackgroundAdmin.png) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+} */
+
+/* User Page */
+#root .User-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.233) url(/src/assets/images/xboxBackgroundUser.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+}
+
+/* CadGame Page */
+#root .CadGame-container {
+  width: 100%;
+  height: 100%;
+  background: url(/src/assets/images/MainBackground2.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-blend-mode: darken;
+}
+
+/* Modal */
+.content-react-modal {
+  width: 100%;
+  max-width: 300px;
+  background-color: #00c000;
+  padding: 3rem;
+  position: relative;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  cursor: context-menu;
+  font-family: "Rajdhani";
+  font-size: 1.5rem;
+}
+
+.close-modal-button {
+  background-color: transparent;
+  color: black;
+  font-size: 1.6rem;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  transition: all .4s;
+  border: none;
+}
+
+.close-modal-button:hover{
+  color: aliceblue;
+}
+
+.overlay-react-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
