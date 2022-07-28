@@ -6,5 +6,5 @@ export enum RoutePath {
   ADMINPAGE = "profiles/admin-page/:id",
   USERPAGE = "profiles/user-page/:id",
   CADGAME = "/cad-games",
-  INFOSGAME = "profiles/game/:id",
+  INFOSGAME = "/info-games/:id",
 }

@@ -43,13 +43,7 @@ export const ModalProfile = ({
   });
 
   useEffect(() => {
-    type === "editProfiles" && isOpen ? getProfileById() : "";
-    type === "createProfiles"
-      ? setCreateNewProfile({
-          imgUrl: "",
-          title: "",
-        })
-      : "";
+    compareType();
   }, [isOpen]);
 
   const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,6 +51,19 @@ export const ModalProfile = ({
       ...values,
       [event.target.name]: event.target.value,
     }));
+  };
+
+  const compareType = () => {
+    if (type === "editProfiles" && isOpen) {
+      getProfileById();
+    }
+
+    if (type === "createProfiles") {
+      setCreateNewProfile({
+        imgUrl: "",
+        title: "",
+      });
+    }
   };
 
   const newProfileUser = async () => {

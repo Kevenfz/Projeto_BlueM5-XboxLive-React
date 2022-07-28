@@ -137,7 +137,7 @@ export const AdminPage = () => {
               <S.ImgGame
                 src={games.imgUrl}
                 alt={`Capa do jogo ${games.title}`}
-                onClick={() => navigate(`/profile/game/${games.id}`)}
+                onClick={() => navigate(`/info-games/${games.id}`)}
               />
               <h2>{games.score}</h2>
               {/* <p>{games.genero}</p> */}
