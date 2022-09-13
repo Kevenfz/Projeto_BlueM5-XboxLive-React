@@ -11,12 +11,13 @@ interface Games {
   score: number;
   traillerYtUrl: string;
   GplayYtUrl: string;
-  genero: string[];
+  genero: [{
+    genero: string;
+  }];
 }
 
 export const GamesInfo = () => {
-  const [allGames, setAllGames] = useState<Games[]>([
-    {
+  const [allGames, setAllGames] = useState<Games>({
       id: "",
       title: "",
       imgUrl: "",
@@ -25,9 +26,11 @@ export const GamesInfo = () => {
       score: 0,
       traillerYtUrl: "",
       GplayYtUrl: "",
-      genero: [],
-    },
-  ]);
+      genero: [{
+        genero: '',
+      }],
+    });
+  
   const { id } = useParams();
 
   useEffect(() => {
@@ -37,29 +40,18 @@ export const GamesInfo = () => {
   const gameData = async () => {
     if (id) {
       const gameData = await findById.IdGame(id);
-      const gameInfo = {
-        id: gameData.data.id,
-        title: gameData.data.title,
-        imgUrl: gameData.data.imgUrl,
-        description: gameData.data.description,
-        year: gameData.data.year,
-        score: gameData.data.score,
-        traillerYtUrl: gameData.data.traillerYtUrl,
-        GplayYtUrl: gameData.data.GplayYtUrl,
-        genero: [],
-      };
-      setAllGames({
-        ...allGames,
-        ...gameInfo,
-      });
+      setAllGames(gameData.data);
     }
   };
 
   return (
     <div>
-      {allGames.map((games) => (
-        <h1>{games.title}</h1>
-      ))}
+        <h1>{allGames.title}</h1>
+        <h2>{allGames.description}</h2>
+        <h3>{allGames.genero.map((gen) => (
+          <h4>{gen.genero}</h4>
+        ))}</h3>
+        <img src={allGames.imgUrl} alt={allGames.title} />
     </div>
   );
 };

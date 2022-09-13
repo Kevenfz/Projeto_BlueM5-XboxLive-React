@@ -8,7 +8,6 @@ import "./style.css";
 interface modalProps {
   isOpen: boolean; //modal aberto
   closeModal: any; //modal fechado
-  // onChange: any; //função para verificar se é cadastro ou edição
   type: string; //createProfile editProfile
   title: string; // title = titulo do modal, criação ou edição
   btnName: string; // texto do botão

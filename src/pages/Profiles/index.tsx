@@ -5,7 +5,6 @@ import { CardProfile } from "./CardProfile/index";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { ModalProfile } from "../../components/Modals/ModalProfile";
 import { TiUserAdd } from "react-icons/ti";
-import { userLoggedService } from "../../services/authService"; 
 import swal from "sweetalert";
 import * as S from "./style";
 import "./style.css";
@@ -14,7 +13,24 @@ interface ProfilesProps {
   id: string;
   title: string;
   imgUrl: string;
-  user: User;
+  user: {
+    id: string;
+    isAdmin: boolean;
+    name: string;
+  };
+  game: [
+    {
+      id: string;
+      title: string;
+      imgUrl: string;
+      description: string;
+      year: string;
+      score: number;
+      traillerYtUrl: string;
+      GplayYtUrl: string;
+      genero: string[];
+    }
+  ];
 }
 
 interface User {
@@ -25,7 +41,9 @@ interface User {
 
 export const UserProfiles = ({}) => {
   const [allProfiles, setAllProfiles] = useState<ProfilesProps[]>([]);
-  const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>([]);
+  const [userProfileLogged, setUserProfileLogged] = useState<ProfilesProps[]>(
+    []
+  );
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [refreshProfiles, setRefreshProfiles] = useState(false);
   const [userLogged, setUserLogged] = useState<User>({
@@ -40,12 +58,12 @@ export const UserProfiles = ({}) => {
     getAllProfiles();
   }, [refreshProfiles]);
 
-  const updateProfiles = (refreshChar: boolean) => { 
-    setRefreshProfiles(refreshChar);
+  const updateProfiles = (refreshProf: boolean) => {
+    setRefreshProfiles(refreshProf);
     setTimeout(() => {
       setRefreshProfiles(false);
     }, 100);
-  }
+  };
 
   const getAllProfiles = async () => {
     if (!jwt) {
@@ -105,7 +123,12 @@ export const UserProfiles = ({}) => {
           <RiLogoutCircleLine onClick={logout} />
         </S.Back>
         {userProfileLogged.map((profile: ProfilesProps, index) => (
-          <CardProfile profilesProps={profile} key={index} updateProfiles={updateProfiles} userLogged={userLogged} />
+          <CardProfile
+            profilesProps={profile}
+            key={index}
+            updateProfiles={updateProfiles}
+            userLogged={userLogged}
+          />
         ))}
         <TiUserAdd onClick={openModal} className="IconNewProfile" />
         <ModalProfile

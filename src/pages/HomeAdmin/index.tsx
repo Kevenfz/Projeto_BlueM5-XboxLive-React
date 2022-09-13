@@ -9,7 +9,6 @@ import * as S from "./style";
 import "./style.css";
 import swal from "sweetalert";
 
-
 interface Games {
   id: string;
   title: string;
@@ -22,7 +21,7 @@ interface Games {
   genero: string[];
 }
 
-interface ProfilesProps {
+interface ProfileProps {
   id: string;
   title: string;
   imgUrl: string;
@@ -31,6 +30,19 @@ interface ProfilesProps {
     isAdmin: boolean;
     name: string;
   };
+  game: [
+    {
+      id: string;
+      title: string;
+      imgUrl: string;
+      description: string;
+      year: string;
+      score: number;
+      traillerYtUrl: string;
+      GplayYtUrl: string;
+      genero: string[];
+    }
+  ];
 }
 
 export const AdminPage = () => {
@@ -47,7 +59,7 @@ export const AdminPage = () => {
       genero: [],
     },
   ]);
-  const [profiles, setProfiles] = useState<ProfilesProps>({
+  const [profiles, setProfiles] = useState<ProfileProps>({
     id: "",
     title: "",
     imgUrl: "",
@@ -56,6 +68,19 @@ export const AdminPage = () => {
       isAdmin: false,
       name: "",
     },
+    game: [
+      {
+        id: "",
+        title: "",
+        imgUrl: "",
+        description: "",
+        year: "",
+        score: 0,
+        traillerYtUrl: "",
+        GplayYtUrl: "",
+        genero: [],
+      },
+    ],
   });
 
   const { id } = useParams();
@@ -71,7 +96,7 @@ export const AdminPage = () => {
     if (!jwt) {
       swal({
         title: "ERRO!",
-        text: "Faça login antes de entrar na pagina de perfis.",
+        text: "Faça login antes de entrar na pagina principal.",
         icon: "error",
         timer: 7000,
       });
@@ -79,14 +104,14 @@ export const AdminPage = () => {
     } else {
       const games = await allGamesService.allGames();
       console.log("Games exibidos", games);
-      setAllGames(games.data);
+      setAllGames(games.data);  
     }
   };
 
   const profilesData = async () => {
     if (id) {
       const dataProfile = await findById.IdProfile(id);
-      const profileInfo = {
+      const profileInfo: ProfileProps = {
         id: dataProfile?.data.id,
         title: dataProfile.data.title,
         imgUrl: dataProfile.data.imgUrl,
@@ -95,12 +120,26 @@ export const AdminPage = () => {
           isAdmin: dataProfile.data.user.isAdmin,
           name: dataProfile.data.user.name,
         },
+        game: [
+          {
+            id: dataProfile.data.game.id,
+            title: dataProfile.data.game.title,
+            imgUrl: dataProfile.data.game.imgUrl,
+            description: dataProfile.data.game.description,
+            year: dataProfile.data.game.year,
+            score: dataProfile.data.game.score,
+            traillerYtUrl: dataProfile.data.game.traillerYtUrl,
+            GplayYtUrl: dataProfile.data.game.GplayYtUrl,
+            genero: [],
+          },
+        ],
       };
       setProfiles({
         ...profiles,
         ...profileInfo,
-      })
+      });
     }
+    console.log("profiles", profiles);
   };
 
   const createGame = () => {
@@ -110,6 +149,7 @@ export const AdminPage = () => {
   const ProfilePage = () => {
     navigate("/profiles");
   };
+
   return (
     <section className="Admin-container">
       <S.SpaceAdmin>
@@ -117,6 +157,9 @@ export const AdminPage = () => {
         <S.InfoAdmin>
           <h1>{profiles.title}</h1>
           <span>ADMIN</span>
+          {profiles.game.map((game) => (
+            <h4>{game.title}</h4>
+          ))}
         </S.InfoAdmin>
         <S.IconBack>
           <RiLogoutCircleLine onClick={ProfilePage} />
@@ -180,6 +223,30 @@ export const AdminPage = () => {
           </S.TitleGeneros>
         </S.Generos>
       </S.InfosGames>
+    </section>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <section>
+      <section className="card-login">
+        <form >
+          <label htmlFor="email">E-mail</label>
+          <input type="text" name="email"/>
+          
+          <label htmlFor="password">Senha</label>
+          <input type="text" name="password"/>
+
+          <button type="submit">Entrar</button>
+        </form>
+        
+      </section>
+
+      {/* <section className="img-login">
+        <img src="" alt="Logo CR Coluna Reta" />
+        <img src={require("../assets/img/computer-login-rafiki.svg")} alt="Ilustração de um usuario fazendo login na aplicação"/>
+      </section> */}
     </section>
   );
 };

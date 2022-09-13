@@ -72,6 +72,7 @@ export const CadGame = () => {
       ...values,
       genero: dataGender,
     };
+    
     const response = await gameService.register(game);
 
     if (response.status === 201) {
@@ -217,8 +218,6 @@ export const CadGame = () => {
             onChange={handleChangesGender}
             placeholder={"Selecione um gênero..."}
             isMulti
-            
-            // styles={styles}
           />
           <S.ButtonModal type="submit">Cadastrar</S.ButtonModal>
         </S.MiddleForm>

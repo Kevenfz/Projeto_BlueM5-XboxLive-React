@@ -2,9 +2,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ModalProfile } from "../../../components/Modals/ModalProfile";
-import { AdminPage } from "../../HomeAdmin";
 import * as S from "../style";
-import { UserProfiles } from "..";
 
 interface ProfilerProps {
   profilesProps: Profiles;
@@ -16,7 +14,24 @@ interface Profiles {
   id: string;
   title: string;
   imgUrl: string;
-  user: User;
+  user: {
+    id: string;
+    isAdmin: boolean;
+    name: string;
+  };
+  game: [
+    {
+      id: string;
+      title: string;
+      imgUrl: string;
+      description: string;
+      year: string;
+      score: number;
+      traillerYtUrl: string;
+      GplayYtUrl: string;
+      genero: string[];
+    }
+  ];
 }
 
 interface User {
@@ -24,7 +39,6 @@ interface User {
   isAdmin: boolean;
   name: string;
 }
-
 
 export const CardProfile = ({
   profilesProps,
@@ -37,7 +51,7 @@ export const CardProfile = ({
 
   const getProfileUser = () => {
     if (user) {
-      const dataUser = JSON.parse(user);
+      const dataUser = JSON.parse(user);     
       setUserProfile(dataUser);
 
       if (userProfile.user.isAdmin === true) {
@@ -66,10 +80,7 @@ export const CardProfile = ({
         <S.NamesProfiles onClick={getProfileUser}>
           {profilesProps.title}
         </S.NamesProfiles>
-        <S.ImgProfiles
-          onClick={getProfileUser}
-          src={profilesProps.imgUrl}
-        />
+        <S.ImgProfiles onClick={getProfileUser} src={profilesProps.imgUrl} />
         <div>
           <FaUserEdit onClick={openModal} className="IconEdit" />
           <ModalProfile

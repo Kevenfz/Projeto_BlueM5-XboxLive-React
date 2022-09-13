@@ -18,4 +18,5 @@ const genderService = {
   .then((response: any) => response)
   .catch((error: any) => error.response)
 }
+
 export { findAllGender, genderService };

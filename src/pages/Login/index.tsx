@@ -6,6 +6,7 @@ import * as S from "./style";
 import swal from "sweetalert";
 import "./style.css";
 import "../../helpers/sweetAlert.css";
+import { STATUS_CODES } from "http";
 
 interface UserLogin {
   email: string;
@@ -29,30 +30,29 @@ export const Login = () => {
 
   const LoginUser = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    
     const response = await loginService.login(values);
     const jwt = response.data.token;
     const user = response.data.user;
     const userId = response.data.user.id;
 
-    if (jwt) {
-      localStorage.setItem("jwt", jwt);
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("userId", userId);
-
-      swal({
-        title: "Seja bem vindo!",
-        icon: "success",
-        timer: 5000,
-      });
-      navigate("/profiles");
-    } else {
+    if (response.status === 401) {
       swal({
         title: "ERRO!",
         text: `${response.data.message}`,
         icon: "error",
         timer: 5000,
       });
+    } else {
+      localStorage.setItem("jwt", jwt);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userId", userId);
+      swal({
+        title: "Seja bem vindo!",
+        icon: "success",
+        timer: 5000,
+      });
+      navigate("/profiles");
+      console.log(response.data);
     }
   };
 
