@@ -86,6 +86,7 @@ export const Login = () => {
               id="email"
               placeholder="Digite seu email"
               onChange={handleChangesValues}
+              autoComplete="off"
             />
 
             <label className="Label" htmlFor="password">
@@ -98,6 +99,7 @@ export const Login = () => {
               id="password"
               placeholder="Digite sua senha"
               onChange={handleChangesValues}
+              autoComplete="off"
             />
             <S.PLogin>
               <p>Não tem uma conta?</p>

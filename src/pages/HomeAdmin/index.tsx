@@ -104,13 +104,14 @@ export const AdminPage = () => {
     } else {
       const games = await allGamesService.allGames();
       console.log("Games exibidos", games);
-      setAllGames(games.data);  
+      setAllGames(games.data);
     }
   };
 
   const profilesData = async () => {
     if (id) {
       const dataProfile = await findById.IdProfile(id);
+      localStorage.setItem("profile", JSON.stringify(dataProfile.data));
       const profileInfo: ProfileProps = {
         id: dataProfile?.data.id,
         title: dataProfile.data.title,
@@ -147,13 +148,14 @@ export const AdminPage = () => {
   };
 
   const ProfilePage = () => {
-    navigate("/profiles");
+    window.history.back();
   };
 
   return (
     <section className="Admin-container">
       <S.SpaceAdmin>
         <S.ProfileImg src={profiles.imgUrl} />
+
         <S.InfoAdmin>
           <h1>{profiles.title}</h1>
           <span>ADMIN</span>
@@ -161,6 +163,7 @@ export const AdminPage = () => {
             <h4>{game.title}</h4>
           ))}
         </S.InfoAdmin>
+
         <S.IconBack>
           <RiLogoutCircleLine onClick={ProfilePage} />
         </S.IconBack>
@@ -223,30 +226,6 @@ export const AdminPage = () => {
           </S.TitleGeneros>
         </S.Generos>
       </S.InfosGames>
-    </section>
-  );
-};
-
-const LoginPage = () => {
-  return (
-    <section>
-      <section className="card-login">
-        <form >
-          <label htmlFor="email">E-mail</label>
-          <input type="text" name="email"/>
-          
-          <label htmlFor="password">Senha</label>
-          <input type="text" name="password"/>
-
-          <button type="submit">Entrar</button>
-        </form>
-        
-      </section>
-
-      {/* <section className="img-login">
-        <img src="" alt="Logo CR Coluna Reta" />
-        <img src={require("../assets/img/computer-login-rafiki.svg")} alt="Ilustração de um usuario fazendo login na aplicação"/>
-      </section> */}
     </section>
   );
 };

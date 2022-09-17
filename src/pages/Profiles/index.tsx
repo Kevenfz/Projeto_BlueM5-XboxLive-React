@@ -8,30 +8,8 @@ import { TiUserAdd } from "react-icons/ti";
 import swal from "sweetalert";
 import * as S from "./style";
 import "./style.css";
+import { ProfilesProps } from "../../types/types";
 
-interface ProfilesProps {
-  id: string;
-  title: string;
-  imgUrl: string;
-  user: {
-    id: string;
-    isAdmin: boolean;
-    name: string;
-  };
-  game: [
-    {
-      id: string;
-      title: string;
-      imgUrl: string;
-      description: string;
-      year: string;
-      score: number;
-      traillerYtUrl: string;
-      GplayYtUrl: string;
-      genero: string[];
-    }
-  ];
-}
 
 interface User {
   id: string;

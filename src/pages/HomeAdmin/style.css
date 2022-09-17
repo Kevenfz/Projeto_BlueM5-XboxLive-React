@@ -1,6 +1,6 @@
 .Admin-container {
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.233) url(/src/assets/images/XboxBackgroundAdmin.png) no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;

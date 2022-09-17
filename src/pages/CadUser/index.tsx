@@ -5,15 +5,9 @@ import { userService } from "../../services/authService";
 import React, { useState } from "react";
 import swal from "sweetalert";
 import "../../helpers/sweetAlert.css";
+import { userObj } from "../../types/types";
 
-interface userObj {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  cpf: string;
-  isAdmin: boolean;
-}
+
 
 
 export const CadUser = () => {
