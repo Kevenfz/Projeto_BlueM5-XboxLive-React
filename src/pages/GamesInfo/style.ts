@@ -87,22 +87,27 @@ export const IconsEditAdmin = styled.aside`
       color: ${theme.colors.secundaryColor};
       cursor: context-menu;
     }
+    /* .Edit-Icon{
+      width: 1rem;
+      position: absolute;
+      left: 1rem;
+      top: -1rem;
+    } */
     .Edit-Game-Controler:hover {
       transform: scale(1.05);
 
       color: #10c800;
     }
-    .Edit-Icon:hover {
+    /* .Edit-Icon:hover {
       transform: scale(1.05);
-
       color: #10c800;
-    }
+    } */
   `}
 `;
 
 export const infoGamesMiddle = styled.section`
   ${({ theme }) => css`
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(0, 0, 0, 0.900);
     border-radius: 2rem;
     width: 95rem;
     height: 51rem;

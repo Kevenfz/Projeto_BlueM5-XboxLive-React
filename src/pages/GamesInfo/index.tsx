@@ -95,7 +95,7 @@ export const GamesInfo = () => {
 
       <S.IconsEditAdmin>
         <IoGameControllerOutline className="Edit-Game-Controler" />
-        <VscEdit className="Edit-Icon" />
+        {/* <VscEdit className="Edit-Icon" /> */}
         <img src={require("../../assets/icons/LogoXbox.png")} alt="Logo Xbox" />
         <p>23:58</p>
       </S.IconsEditAdmin>
@@ -152,7 +152,7 @@ export const GamesInfo = () => {
           
         </S.infosGames>
       </S.infoGamesMiddle>
-      
+
     </S.GameInfoAll>
   );
 };

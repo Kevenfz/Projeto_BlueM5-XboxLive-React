@@ -124,7 +124,7 @@ export const CadGame = () => {
   };
 
   const ProfilePage = () => {
-    navigate("/profiles");
+    window.history.back();
   };
 
   return (

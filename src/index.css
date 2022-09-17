@@ -18,7 +18,7 @@ body, html, #root {
 /* Home Page */
 #root .Home-container {
   width: 100%;
-  background: rgba(0, 0, 0, 0.797) url(/src/assets/images/backgroundHomePage.jpg) no-repeat;
+  background: rgba(0, 0, 0, 0.664) url(/src/assets/images/mainPage.png) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
   background-position: bottom;
@@ -91,7 +91,7 @@ body, html, #root {
 #root .infoGame-container {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.233) url(/src/assets/images/977951.jpg) no-repeat;
+  background: url(/src/assets/images/mainPage.jpg) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
   background-position: bottom;
